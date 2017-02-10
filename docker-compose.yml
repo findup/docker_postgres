@@ -1,0 +1,17 @@
+version: '2'
+services: 
+    postgres:
+        build: 
+            context: "./postgres"
+            args: 
+                - http_proxy
+                - https_proxy
+                - no_proxy
+        ports: 
+            - "5432:5432"
+        container_name: postgres
+        environment: 
+            - http_proxy
+            - https_proxy
+            - no_proxy
+
