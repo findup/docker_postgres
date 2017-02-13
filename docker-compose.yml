@@ -14,4 +14,13 @@ services:
             - http_proxy
             - https_proxy
             - no_proxy
+        working_dir: '/usr/work'
+        volumes: 
+            - ./postgres_work:/usr/work
+        volumes_from: 
+            - db_data
 
+    db_data:
+        image: busybox
+        volumes: 
+            - ./db_data:/var/lib/postgresql/data
